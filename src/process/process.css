@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600&family=Noto+Serif+JP:wght@400;600&display=swap');
+
+.process-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  color: #fff;
+  font-family: "Noto Serif", serif;
+}
+
+.process-bg {
+  position: absolute;
+  inset: 0;
+  background: url("/process-back.png") center center/cover no-repeat;
+  z-index: 0;
+  opacity: 0.9;
+}
+
+/* 全体レイアウト */
+.process-inner {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* タイトル部分 */
+.process-header {
+  position: absolute;
+  top: 80px;
+  left: 8vw;
+}
+
+.process-header h3 {
+  font-size: clamp(22px, 2.6vw, 36px); /* ✅ 全体的に大きく */
+  letter-spacing: 0.12em;
+  font-weight: 600;
+}
+
+/* レイアウト */
+.process-layout {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 9rem; /* 少し広めにしてゆとりを出す */
+}
+
+/* 左：月リスト */
+.process-months {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  cursor: pointer;
+}
+
+.month-item {
+  font-family: "Noto Serif JP", serif;
+  font-size: clamp(18px, 1.6vw, 24px); /* ✅ 大幅アップ */
+  color: rgba(255, 255, 255, 0.55);
+  padding-left: 1.5rem;
+  border-left: 2px solid rgba(255, 255, 255, 0.25);
+  transition: all 0.4s ease;
+}
+
+.month-item:hover {
+  color: #fff;
+  transform: translateX(8px);
+}
+
+.month-item.active {
+  color: #fff;
+  border-left: 3px solid #fff;
+  transform: translateX(12px);
+}
+
+/* 右：内容 */
+.process-content {
+  width: 55%;
+  transition: opacity 0.6s ease;
+}
+
+.process-content.fade-in {
+  opacity: 1;
+}
+
+.process-content.fade-out {
+  opacity: 0;
+}
+
+/* 見出し */
+.process-content h4 {
+  font-family: "Noto Serif JP", serif;
+  font-size: clamp(30px, 3.5vw, 50px); /* ✅ 約1.4倍拡大 */
+  font-weight: 600;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+/* 本文 */
+.process-content p {
+  font-family: "Noto Serif JP", serif;
+  font-size: clamp(18px, 1.8vw, 24px); /* ✅ 読みやすく拡大 */
+  opacity: 0.9;
+  margin-bottom: 1.2rem;
+  line-height: 2.1;
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+  .process-layout {
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .process-months {
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .month-item {
+    border-left: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 0.5rem 1rem;
+    font-size: 16px; /* ✅ スマホでも少し大きく */
+  }
+
+  .month-item.active {
+    border-bottom: 3px solid #fff;
+    transform: translateY(-3px);
+  }
+
+  .process-content {
+    width: 90%;
+    text-align: center;
+  }
+
+  .process-content h4 {
+    font-size: 26px; /* ✅ スマホ用見出し調整 */
+  }
+
+  .process-content p {
+    font-size: 16px;
+  }
+}

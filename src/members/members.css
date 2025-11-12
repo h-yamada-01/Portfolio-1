@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&family=Noto+Serif+JP:wght@400;600;700&display=swap');
+
+.members-section {
+  position: relative;
+  width: 100%;
+  background-color: #0f111a;
+  color: #fff;
+  overflow: hidden;
+  padding: 8rem 0;
+  font-family: "Noto Serif", serif;
+}
+
+/* ===== タイトル ===== */
+.members-title-en {
+  position: absolute;
+  top: 100px;
+  left: 6vw;
+  font-size: clamp(18px, 1.8vw, 28px);
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  color: #ffffffd0;
+  z-index: 10;
+}
+
+/* ===== スライダー ===== */
+.members-inner {
+  text-align: center;
+  margin-top: 6rem;
+}
+
+.members-slider {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.members-track {
+  display: flex;
+  width: calc(420px * 8);
+  animation: slideLeft 40s linear infinite;
+}
+
+/* ===== カード ===== */
+.member-card {
+  flex: 0 0 420px;
+  margin: 0 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 18px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: left;
+  transition: transform 0.3s ease;
+  height: 620px; /* ✅ 縦長化 */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.member-card:hover {
+  transform: translateY(-8px);
+}
+
+/* ===== 画像部分を大きく ===== */
+.member-image {
+  width: 100%;
+  height: 380px; /* ✅ 高さアップ */
+  overflow: hidden;
+}
+
+.member-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.member-card:hover .member-image img {
+  transform: scale(1.05);
+}
+
+/* ===== テキスト部分 ===== */
+.member-info {
+  padding: 1.4rem 1.4rem 2rem;
+}
+
+.member-info h4 {
+  font-family: "Noto Serif JP", serif;
+  font-size: 17px;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+}
+
+.member-info h5 {
+  font-family: "Noto Serif", serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #cfcfcf;
+  margin-bottom: 1rem;
+  letter-spacing: 0.03em;
+}
+
+.member-info p {
+  font-family: "Noto Serif JP", serif;
+  font-size: 14px;
+  color: #cccccc;
+  line-height: 1.9;
+  opacity: 0.9;
+}
+
+/* ===== アニメーション ===== */
+@keyframes slideLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ===== スマホ対応 ===== */
+@media (max-width: 768px) {
+  .members-title-en {
+    top: 80px;
+    left: 8vw;
+    font-size: 16px;
+  }
+
+  .member-card {
+    flex: 0 0 300px;
+    height: 480px;
+  }
+
+  .member-image {
+    height: 260px;
+  }
+
+  .member-info h4 {
+    font-size: 15px;
+  }
+
+  .member-info h5 {
+    font-size: 13px;
+  }
+
+  .member-info p {
+    font-size: 13px;
+  }
+
+  .members-track {
+    width: calc(300px * 8);
+    animation: slideLeft 30s linear infinite;
+  }
+}

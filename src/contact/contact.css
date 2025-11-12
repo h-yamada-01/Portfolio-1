@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&family=Noto+Serif+JP:wght@400;600;700&display=swap');
+
+/* ===============================
+   CONTACT（上半分）
+=============================== */
+.contact-section {
+  background-color: #0f111a;
+  color: #fff;
+  text-align: center;
+  font-family: "Noto Serif JP", serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+.contact-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 8rem 2rem 6rem;
+}
+
+/* タイトル */
+.contact-title {
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 600;
+  margin-bottom: 2rem;
+  letter-spacing: 0.04em;
+}
+
+/* 本文 */
+.contact-text {
+  font-size: clamp(14px, 1.3vw, 18px);
+  line-height: 2;
+  opacity: 0.9;
+  margin-bottom: 3rem;
+}
+
+/* ボタン */
+.contact-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.contact-btn {
+  background-color: #fff;
+  color: #0f111a;
+  border: none;
+  border-radius: 9999px;
+  padding: 1rem 2.5rem;
+  font-size: clamp(14px, 1.1vw, 16px);
+  cursor: pointer;
+  font-family: "Noto Serif JP", serif;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.contact-btn:hover {
+  background-color: #e8e8e8;
+  transform: translateY(-3px);
+}
+
+.contact-btn.secondary {
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+.contact-btn.secondary:hover {
+  background-color: #fff;
+  color: #0f111a;
+}
+
+/* ===============================
+   FOOTER（下半分）
+=============================== */
+.footer-section {
+  background-color: #0f111a;
+  color: #fff;
+  font-family: "Noto Serif JP", serif;
+  padding: 5rem 2rem 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1100px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+/* 左側ロゴ */
+.footer-logo img {
+  width: 120px;
+  height: auto;
+  display: block;
+  opacity: 0.9;
+}
+
+/* 右側情報 */
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  gap: 2.5rem;
+}
+
+.footer-company p,
+.footer-sns p {
+  margin: 0.2rem 0;
+  font-size: clamp(13px, 1vw, 15px);
+  opacity: 0.9;
+}
+
+.footer-sns-icons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+.footer-sns-icons img {
+  width: 22px;
+  height: 22px;
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
+}
+
+.footer-sns-icons img:hover {
+  opacity: 1;
+}
+
+/* 著作権部分 */
+.footer-bottom {
+  text-align: center;
+  margin-top: 3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1.5rem;
+}
+
+.footer-bottom p {
+  font-family: "Noto Serif", serif;
+  font-size: clamp(12px, 0.9vw, 14px);
+  color: #ccc;
+  margin: 0;
+}
+
+/* ===============================
+   スマホ対応
+=============================== */
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 0;
+  }
+
+  .contact-inner {
+    padding: 6rem 1.5rem 4rem;
+  }
+
+  .contact-text {
+    font-size: 15px;
+  }
+
+  .contact-buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .contact-btn {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .footer-info {
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-sns-icons {
+    justify-content: center;
+  }
+}
