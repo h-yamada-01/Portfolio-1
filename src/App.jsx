@@ -68,6 +68,7 @@ function App() {
   const moveNext = () => moveTo(index + 1);
   const movePrev = () => moveTo(index - 1);
 
+  // ===== PC用：マウスホイール制御 =====
   useEffect(() => {
     const onWheel = (e) => {
       e.preventDefault();
@@ -79,6 +80,44 @@ function App() {
 
     window.addEventListener("wheel", onWheel, { passive: false });
     return () => window.removeEventListener("wheel", onWheel);
+  }, [index, locked]);
+
+  // ===== スマホ・タブレット用：スワイプ制御 =====
+  useEffect(() => {
+    let startY = 0;
+    let endY = 0;
+    const threshold = 80; // スワイプ感知閾値(px)
+
+    const onTouchStart = (e) => {
+      startY = e.touches[0].clientY;
+    };
+
+    const onTouchMove = (e) => {
+      endY = e.touches[0].clientY;
+    };
+
+    const onTouchEnd = () => {
+      if (locked) return;
+      const diffY = startY - endY;
+
+      // 下から上にスワイプ → 次のセクションへ
+      if (diffY > threshold) moveNext();
+      // 上から下にスワイプ → 前のセクションへ
+      else if (diffY < -threshold) movePrev();
+
+      startY = 0;
+      endY = 0;
+    };
+
+    window.addEventListener("touchstart", onTouchStart, { passive: true });
+    window.addEventListener("touchmove", onTouchMove, { passive: true });
+    window.addEventListener("touchend", onTouchEnd, { passive: true });
+
+    return () => {
+      window.removeEventListener("touchstart", onTouchStart);
+      window.removeEventListener("touchmove", onTouchMove);
+      window.removeEventListener("touchend", onTouchEnd);
+    };
   }, [index, locked]);
 
   return (
@@ -139,7 +178,5 @@ function App() {
     </div>
   );
 }
-
-/* コメント　*/
 
 export default App;
