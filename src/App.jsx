@@ -140,6 +140,9 @@ function App() {
   );
 }
 
+<<<<<<< HEAD
 /* コメント　*/
 
+=======
+>>>>>>> fedb708cf9ed638ea05f5d5729faf8430003b261
 export default App;
