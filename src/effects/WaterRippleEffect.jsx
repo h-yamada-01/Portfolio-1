@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import "./waterRipple.css";
+import "./WaterRipple.css";
 
 const WaterRippleEffect = ({ onComplete }) => {
   const canvasRef = useRef(null);
