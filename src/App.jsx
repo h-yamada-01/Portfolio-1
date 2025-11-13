@@ -140,4 +140,6 @@ function App() {
   );
 }
 
+/* コメント　*/
+
 export default App;
