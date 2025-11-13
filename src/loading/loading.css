@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #0f111a;
+  color: #ffffff;
+  font-family: "Noto Serif", serif;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  text-align: center;
+}
+
+.loading-text {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-family: "Noto Serif", serif;
+}
+
+/* バーとパーセントを横並びに */
+.loading-bar-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.loading-bar {
+  width: 600px;
+  height: 20px;
+  background-color: #d3d3d3;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.loading-progress {
+  height: 100%;
+  width: 0%;
+  background-color: #00b5e2;
+  border-radius: 10px;
+  transition: width 0.2s ease-out;
+}
+
+/* 数字 */
+.loading-percent {
+  font-size: 2rem;
+  width: 40px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  font-family: "Noto Serif", serif;
+}
+
+/* ========= ✅ タブレット（1024px以下） ========= */
+@media (max-width: 1024px) {
+  .loading-text {
+    font-size: 2rem;
+  }
+
+  .loading-bar {
+    width: 400px;
+    height: 18px;
+  }
+
+  .loading-percent {
+    font-size: 1.8rem;
+    width: 50px;
+  }
+}
+
+/* ========= ✅ スマホ（768px以下） ========= */
+@media (max-width: 768px) {
+  .loading-text {
+    font-size: 1.6rem;
+    margin-bottom: 16px;
+  }
+
+  .loading-bar-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .loading-bar {
+    width: 400px;
+    height: 14px;
+  }
+
+  .loading-percent {
+    font-size: 1.4rem;
+    width: auto;
+    text-align: center;
+  }
+}
+
+/* ========= ✅ 小型スマホ（430px以下） ========= */
+@media (max-width: 430px) {
+  .loading-text {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+  }
+
+  .loading-bar-container {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .loading-bar {
+    width: 320px;
+    height: 12px;
+  }
+
+  .loading-percent {
+    font-size: 1.2rem;
+  }
+}

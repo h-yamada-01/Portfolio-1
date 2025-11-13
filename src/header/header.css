@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600&display=swap');
+
+.header {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 85%;
+  height: 70px;
+  border-radius: 100px;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+}
+
+/* 内部レイアウト */
+.header-inner {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ロゴ */
+.header-logo img {
+  height: 40px;
+  width: auto;
+  display: block;
+  opacity: 0.9;
+}
+
+/* CTAボタン */
+.header-btn {
+  background-color: #fff;
+  color: #0f111a;
+  border: none;
+  border-radius: 9999px;
+  padding: 0.6rem 1.6rem;
+  font-family: "Noto Serif", serif;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.header-btn:hover {
+  background-color: #e8e8e8;
+  transform: translateY(-2px);
+}
+
+/* スクロール時に半透明強化 */
+.header.scrolled {
+  background: rgba(15, 17, 26, 0.9);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* SP対応 */
+@media (max-width: 768px) {
+  .header {
+    width: 92%;
+    height: 60px;
+  }
+
+  .header-logo img {
+    height: 32px;
+  }
+
+  .header-btn {
+    font-size: 13px;
+    padding: 0.5rem 1.2rem;
+  }
+}

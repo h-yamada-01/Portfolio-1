@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&family=Noto+Serif+JP:wght@400;600;700&display=swap');
+
+:root {
+  --text: #ffffff;
+  --cta-text: #0f111a;
+}
+
+/* ===== セクション ===== */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* 背景画像（public直下から） */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: url("/hero-back.png") right center/cover no-repeat;
+  z-index: 0;
+}
+
+/* コンテンツエリア */
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 6vw;
+  display: flex;
+  align-items: center;
+}
+
+/* コピーエリア */
+.hero-copy {
+  color: var(--text);
+  text-align: left;
+  position: relative;
+}
+
+/* 英語タイトル */
+.hero-title-en {
+  font-family: "Noto Serif", serif;
+  font-weight: 600;
+  line-height: 1.2;
+  font-size: clamp(28px, 5vw, 56px);
+  margin: 0 0 1.2rem 0;
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+/* 日本語タイトル */
+.hero-title-jp {
+  font-family: "Noto Serif JP", serif;
+  font-weight: 700;
+  line-height: 1.35;
+  font-size: clamp(26px, 3.5vw, 40px); /* ✅ 以前より大きく */
+  margin: 0;
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+/* フェードイン共通 */
+.hero-title-en.in,
+.hero-title-jp.in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* CTAラッパー：高さ確保で他要素が動かない */
+.hero-cta-wrapper {
+  margin-top: 2.5rem;
+  height: 72px; /* ✅ CTA分の高さを常に確保 */
+  display: flex;
+  align-items: center;
+}
+
+/* CTAボタン */
+.hero-btn {
+  display: inline-block;
+  padding: 1.2rem 3rem; /* ✅ 以前より大きめ */
+  border: none;
+  border-radius: 9999px;
+  background: #ffffff;
+  color: var(--cta-text);
+  font-family: "Noto Serif", serif;
+  font-weight: 600;
+  font-size: clamp(16px, 1.5vw, 22px); /* ✅ サイズアップ */
+  cursor: pointer;
+  opacity: 0;
+  animation: fadeUp 1s ease forwards;
+  animation-delay: 0.2s;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.35);
+}
+
+/* CTAフェードアップ（他要素に影響なし） */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== SP最適化 ===== */
+@media (max-width: 768px) {
+  .hero-inner {
+    padding: 0 15vw;
+  }
+
+  .hero-title-en {
+    font-size: clamp(22px, 4.5vw, 34px);
+  }
+
+  .hero-title-jp {
+    font-size: clamp(20px, 4vw, 28px);
+  }
+
+  .hero-btn {
+    padding: 1rem 2rem;
+    font-size: 16px;
+  }
+}

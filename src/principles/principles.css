@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&family=Noto+Serif+JP:wght@400;600;700&display=swap');
+
+.principles-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  font-family: "Noto Serif", serif;
+  color: #111;
+}
+
+/* 背景 */
+.principles-bg {
+  position: absolute;
+  inset: 0;
+  background: url("/principles-back.png") center center/cover no-repeat;
+  z-index: 0;
+}
+
+/* 内側コンテナ */
+.principles-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  padding: 8rem 5vw;
+}
+
+/* タイトル（左上） */
+.principles-header {
+  position: absolute;
+  top: 120px;
+  left: 6vw;
+  text-align: left;
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.principles-header.fade-in-left {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.principles-title-en {
+  font-family: "Noto Serif", serif;
+  font-size: clamp(18px, 1.6vw, 24px);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.4rem;
+}
+
+.principles-title-jp {
+  font-family: "Noto Serif JP", serif;
+  font-weight: 600;
+  font-size: clamp(24px, 2.6vw, 34px);
+}
+
+/* ===== リスト ===== */
+.principles-list {
+  position: absolute;
+  top: 50%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+/* ✅ ガラス調ボックス：横幅広く、透明度控えめ */
+.principle-item.glass {
+  width: min(950px, 90%);
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  padding: 1rem 2.2rem;
+  text-align: left;
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+/* ✅ 右から左に統一 */
+.principle-item.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* テキスト */
+.principle-item h4 {
+  font-family: "Noto Serif", serif;
+  font-size: clamp(18px, 1.6vw, 22px);
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.03em;
+  color: #000;
+}
+
+.principle-item p {
+  font-family: "Noto Serif JP", serif;
+  font-size: clamp(16px, 1.4vw, 20px);
+  line-height: 1.8;
+  color: #000;
+  opacity: 0.9;
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+  .principles-header {
+    top: 90px;
+    left: 8vw;
+  }
+
+  .principles-inner {
+    padding: 0;
+  }
+
+  .principles-list {
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    gap: 1.8rem;
+    align-items: center;
+  }
+
+  .principle-item.glass {
+    width: 100%;
+    padding: 1.4rem 1rem;
+    text-align: center;
+  }
+}
